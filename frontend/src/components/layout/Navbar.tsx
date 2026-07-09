@@ -196,13 +196,15 @@ function BranchSwitcher({ userRole }: { userRole: string }) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="gap-2 rounded-xl text-gray-700 font-medium">
-          <MapPin className="h-4 w-4 text-[#00D9D9]" />
-          <span className="hidden sm:inline-block max-w-[120px] truncate">{currentBranch.name}</span>
-          {userRole === 'owner' && <ChevronDown className="h-4 w-4 text-gray-400" />}
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger 
+        render={
+          <Button variant="outline" className="gap-2 rounded-xl text-gray-700 font-medium">
+            <MapPin className="h-4 w-4 text-[#00D9D9]" />
+            <span className="hidden sm:inline-block max-w-[120px] truncate">{currentBranch.name}</span>
+            {userRole === 'owner' && <ChevronDown className="h-4 w-4 text-gray-400" />}
+          </Button>
+        }
+      />
       {userRole === 'owner' && availableBranches.length > 0 && (
         <DropdownMenuContent align="end" className="w-56 bg-white rounded-xl shadow-lg border-gray-100">
           <DropdownMenuLabel className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
