@@ -22,6 +22,8 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+import productRoutes from './routes/productRoutes';
+
 // Basic Health Check Route
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ 
@@ -32,8 +34,8 @@ app.get('/health', (req: Request, res: Response) => {
 });
 
 // API Routes will be mounted here
+app.use('/api/products', productRoutes);
 // app.use('/api/users', userRoutes);
-// app.use('/api/products', productRoutes);
 // ...
 
 // Global Error Handler
