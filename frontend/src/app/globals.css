@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  --color-primary: #00D9D9;
+  --color-primary-foreground: #05080D;
+  --color-secondary: #00B8B8;
+  --color-accent: #35F5FF;
+
+  --color-border: #1F3C46;
+  --color-input: #1F3C46;
+  --color-ring: #00D9D9;
+  
+  --color-card: #111827;
+  --color-card-foreground: #FFFFFF;
+
+  --color-muted: #1B2933;
+  --color-muted-foreground: #8D99A6;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #05080D;
+}
+
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #35F5FF 0%, #00D9D9 45%, #00A8B8 100%);
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(135deg, #05080D, #08121A, #0B1118);
+}
+
+.bg-button-gradient {
+  background: linear-gradient(90deg, #35F5FF, #00D9D9);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 25px rgba(0,217,217,0.35);
+}
+
+.shadow-premium {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+}
+
+.shadow-button {
+  box-shadow: 0 8px 30px rgba(0,217,217,0.25);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
