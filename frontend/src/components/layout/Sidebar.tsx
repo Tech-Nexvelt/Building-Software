@@ -263,9 +263,7 @@ export function Sidebar({
             if (sidebarCollapsed) {
               return (
                 <Tooltip key={item.href}>
-                  <TooltipTrigger asChild>
-                    {linkEl}
-                  </TooltipTrigger>
+                  <TooltipTrigger render={linkEl} />
                   <TooltipContent side="right" className="font-medium bg-gray-900 text-white border-transparent">
                     {item.label}
                   </TooltipContent>
