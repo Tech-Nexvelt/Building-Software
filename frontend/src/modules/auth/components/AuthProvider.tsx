@@ -16,6 +16,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const fetchSessionAndUser = async () => {
     try {
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+        setUser({ id: 'demo-user', email: 'admin@nexvelt.com', role: 'owner', name: 'Demo Admin' } as any);
+        setSession({ accessToken: 'demo-token', refreshToken: 'demo', expiresAt: 9999999999 });
+        setLoading(false);
+        return;
+      }
+      
       const supabase = createClient();
       const { data: { session: currentSession } } = await supabase.auth.getSession();
       
@@ -43,6 +50,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     fetchSessionAndUser();
+
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return;
 
     const supabase = createClient();
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
